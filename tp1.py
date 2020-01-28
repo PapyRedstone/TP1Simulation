@@ -43,7 +43,7 @@ def main():
         try:
             functions[choice]()
         except KeyError:
-            print("Veuillez choisir entre 1,2,3,4,5,c et q")
+            print("Veuillez choisir une entree correcte")
             
 if __name__ == "__main__":
     main()
