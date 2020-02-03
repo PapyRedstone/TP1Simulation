@@ -2,7 +2,9 @@ import random
 
 class Croupier:
     def __init__(self):
+        self.reset()
 
+    def reset(self):
         #pack of cards that we can draw card from
         self.cards = []
         for t in ["Coeur", "Pique", "Trefle", "Carreau"]:
@@ -18,6 +20,7 @@ class Croupier:
         self.drawCards += [card]
         return card
 
+    #For Debug Purpose
     def showCards(self):
         print("Cards:")
         print(self.cards)
@@ -29,7 +32,7 @@ class Croupier:
         self.cards += self.drawCards
         self.drawCards = []
 
-def testCroupier():
+def testCroupier(n):
     c = Croupier()
 
     n = int(input("Entrez le nombre de tirages avec remises : "))
