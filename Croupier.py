@@ -2,11 +2,14 @@ import random
 
 class Croupier:
     def __init__(self):
+
+        #pack of cards that we can draw card from
         self.cards = []
         for t in ["Coeur", "Pique", "Trefle", "Carreau"]:
             for v in range(1,14):
                 self.cards += [{"type":t, "value":v}]
 
+        #pack of drawn cards
         self.drawCards = []
 
     def drawCard(self):
