@@ -48,7 +48,7 @@ def game3(n):
         c1 = c.drawCard()["value"]
         c2 = c.drawCard()["value"]
 
-        if c2 == c1+1:
+        if c2 > c1:
             playerScore += 2
 
     print("Le joueur aura {} {}$ au cours des {} parties".format(
@@ -62,7 +62,6 @@ def game4(n):
     for _ in range(n):
         c = Croupier()
         playerScore -= 1
-        k = 0
         cards = []
 
         for _ in range(3):
