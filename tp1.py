@@ -5,9 +5,10 @@ from Croupier import *
 # n is the number of game the simulation must play
 def game1(n):
     playerScore = 0
+    
     for _ in range(n):
-        playerScore -= 1
         c = Croupier()
+        playerScore -= 1
         if c.drawCard()["value"] == 1:
             playerScore += 10
 
@@ -18,7 +19,23 @@ def game1(n):
         n))
     
 def game2(n):
-    return
+    playerScore = 0
+
+    for _ in range(n):
+        c = Croupier()
+        playerScore -= 1
+        
+        c1 = c.drawCard()
+        c.putBackCards()
+        c2 = c.drawCard()
+
+        if c1 == c2:
+            playerScore += 50
+
+    print("Le joueur aura {} {}$ au cours des {} parties".format(
+        "gagné" if playerScore >= 0 else "perdu",
+        abs(playerScore),
+        n))
 
     
 def game3(n):
