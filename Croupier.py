@@ -34,7 +34,7 @@ class Croupier:
         self.drawCards = []
         random.shuffle(self.cards)
 
-def testCroupier(n):
+def testCroupier():
     c = Croupier()
 
     n = int(input("Entrez le nombre de tirages avec remises : "))
@@ -43,11 +43,10 @@ def testCroupier(n):
     for _ in range(n):
         card = c.drawCard()
         try:
-            distribution[card["type"]+" "+str(card["value"])] += 1
+            distribution[str(card["value"]) + " " + card["type"]] += 1
         except KeyError:
-            distribution[card["type"]+" "+str(card["value"])] = 1
+            distribution[str(card["value"]) + " " + card["type"]] = 1
         c.putBackCards()
 
-    for k in distribution.keys():
-        v = distribution[k]
-        print("Carte {} tiree \t {} fois (erreur {:.3f}%)".format(k, v, abs(v - (n/52))/n*5200))
+    for (k,v) in distribution.items():
+        print("Carte {}   \t tirée   {} fois (erreur {:.3f}%)".format(k, v, abs(v - (n/52))/n*5200))

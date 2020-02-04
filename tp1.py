@@ -97,13 +97,15 @@ def game5(n):
         n))
             
 def main():
-    functions = {
-        "c":testCroupier,
+    games = {
         "1":game1,
         "2":game2,
         "3":game3,
         "4":game4,
-        "5":game5,
+        "5":game5
+    }
+    functions = {
+        "c":testCroupier,
         "q":exit
     }
 
@@ -118,16 +120,15 @@ def main():
         print("\tQuitter (q)")
         
         choice = input()
-        #choice = "5" #for testing
 
         try:
-            if choice == 'q' or choice == 'c':
+            if choice in functions.keys():
                 functions[choice]()
-            else:
+            elif choice in games.keys():
                 n = int(input("Combien de parties voulez jouez ? "))
-                #n = 1 # for testing
                 functions[choice](n)
-            #return #for testing
+            else:
+                raise KeyError
         except ValueError:
             print("Veuillez entrer un nombre")
         except KeyError:
