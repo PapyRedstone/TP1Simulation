@@ -57,7 +57,23 @@ def game3(n):
         n))
     
 def game4(n):
-    return
+    playerScore = 0
+
+    for _ in range(n):
+        c = Croupier()
+        playerScore -= 1
+        k = 0
+        cards = []
+
+        for _ in range(3):
+            cards += [c.drawCard()["type"]]
+
+        playerScore += cards.count("Coeur")
+
+    print("Le joueur aura {} {}$ au cours des {} parties".format(
+        "gagné" if playerScore >= 0 else "perdu",
+        abs(playerScore),
+        n))
 
 def game5(n):
     playerScore = 0
