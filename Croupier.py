@@ -13,6 +13,7 @@ class Croupier:
 
         #pack of drawn cards
         self.drawCards = []
+        random.shuffle(self.cards)
 
     def drawCard(self):
         card = random.choice(self.cards)
@@ -31,6 +32,7 @@ class Croupier:
     def putBackCards(self):
         self.cards += self.drawCards
         self.drawCards = []
+        random.shuffle(self.cards)
 
 def testCroupier(n):
     c = Croupier()
