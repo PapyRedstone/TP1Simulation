@@ -39,7 +39,22 @@ def game2(n):
 
     
 def game3(n):
-    return
+    playerScore = 0
+
+    for _ in range(n):
+        c = Croupier()
+        playerScore -= 1
+        
+        c1 = c.drawCard()["value"]
+        c2 = c.drawCard()["value"]
+
+        if c2 == c1+1:
+            playerScore += 2
+
+    print("Le joueur aura {} {}$ au cours des {} parties".format(
+        "gagné" if playerScore >= 0 else "perdu",
+        abs(playerScore),
+        n))
     
 def game4(n):
     return
